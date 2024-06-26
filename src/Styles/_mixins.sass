@@ -1,0 +1,96 @@
+@use 'variables'
+
+@mixin yellow-pink-linear-gradient
+    border-image: linear-gradient(to right, variables.$rose, variables.$light-pink, variables.$yellow, variables.$orange, variables.$red ) 1
+    border-bottom: 2px solid
+    
+    .container
+        background-color: variables.$yellow
+
+@mixin blue-orange-linear-gradient
+    border-image: linear-gradient(to right, variables.$dark-blue, variables.$light-blue, variables.$aqua-blue, variables.$dark-orange, variables.$light-orange ) 1
+    border-bottom: 2px solid
+
+@mixin grey-linear-gradient
+    border-image: linear-gradient(to right, variables.$light-grey, variables.$medium-grey, variables.$dark-grey, variables.$charcoal, variables.$black ) 1
+    border-bottom: 2px solid
+
+@mixin green-rose-linear-gradient
+    border-image: linear-gradient(to right, variables.$dark-green, variables.$green-grey, variables.$light-green, variables.$light-rose, variables.$rose ) 1
+    border-bottom: 2px solid
+
+@mixin full-container-auto
+    width: 100vw
+    height: auto
+
+@mixin full-container
+    width: 100vw
+    height: 100vh
+
+@mixin flex-container
+    display: flex
+
+@mixin flex-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+@mixin flex-space-between
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+@mixin flex-space-evenly
+    display: flex
+    justify-content: space-evenly
+    align-items: center
+
+@mixin flex-space-around
+    display: flex
+    justify-content: space-around
+    align-items: center
+
+@mixin flex-wrap
+    display: flex
+    flex-wrap: wrap
+
+@mixin flex-gap
+    display: flex
+    gap: 2rem
+
+@mixin flex-column-center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+@mixin flex-end
+    display: flex
+    justify-content: flex-end
+
+@mixin flex-start
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+
+@mixin flex-align-end
+    display: flex
+    align-self: flex-end
+
+@mixin texts
+    // font-weight: variables.$font-text-weight-light
+    line-height: 2.5
+
+@mixin headings-size
+    font-size: clamp(1rem, 0.619rem + 0.758vw, 1.563rem)
+
+@mixin texts-size
+    font-size: clamp(0.8rem, 0.619rem + 0.758vw, 1.563rem)
+
+@mixin small-text-size
+    font-size: clamp(0.5rem, 0.329rem + 0.716vw, 1rem)
+
+@mixin text-box-full
+    padding: 2rem 4rem
+
+
