@@ -5,18 +5,34 @@ html, body
     background-color: variables.$background-color-main
     margin: 0 auto
 
+h1, h2, h3, h4, h5, h6
+    font-family: variables.$font-headings
+
+p
+    font-family: variables.$font-text
+
+
 ul li
     list-style-type: none
 
 a
     text-decoration: none
+    font-family: variables.$font-text
+
+a, button h3
+    text-transform: uppercase
+
+.navigation a
+    font-size: variables.$font-size-large
+
+button
+    background-color: transparent
+    border: none
+    cursor: pointer
 
 .container
     width: 100%
     height: 100vh
-
-.services-content, .contact-content, .work-content, .about-content
-    @include mixins.yellow-pink-linear-gradient
 
 .header-container > div
     &:nth-last-child(n + 2)
@@ -26,17 +42,21 @@ a
     @include mixins.flex-end
     @include mixins.yellow-pink-linear-gradient
     width: 100vw
+    position: fixed
 
     .logo-container, .menu
         @include mixins.flex-center
 
     .logo-container
         width: 100vw
+        background-color: transparent
 
-    .menu
-        position: absolute
-        top: 1%
-        z-index: 3
+.menu, .drawer-container
+    position: absolute
+    z-index: 5
+
+.menu
+    top: 3%
 
     .navbar-container
         @include mixins.full-container-auto
@@ -46,9 +66,10 @@ a
 .navigation
     @include mixins.flex-column-center
     @include mixins.full-container
-    background-color: pink
+    background-color: variables.$yellow-group-background
+    
 
-.circle-container
+.circle-container, .language-content
     @include mixins.flex-container
     gap: 1rem
 
@@ -61,9 +82,101 @@ a
     @include mixins.flex-container
 
     .square
-        width: 2rem
+        width: 2vw
         height: 2rem
-        border: 2px solid black
+        border: 2px solid variables.$dark-color
+
+.drawer-container
+    @include mixins.flex-column-gap
+    background-color: variables.$yellow-group-background
+    position: fixed
+    height: 100%
+    padding: 5.4rem 1rem 0 1rem
+
+    .drawer-icons
+        @include mixins.flex-column-gap
+
+.drawer-language-content, .pallete
+    @include mixins.flex-gap
+    align-items:  center
+
+.pallete-content
+    @include mixins.flex-gap
+
+.palletes
+    @include mixins.flex-column-center
+    gap: 2rem
+
+.video video
+    @include mixins.full-container
+    object-fit: cover
+
+.home-text-container
+    @include mixins.big-font-size
+    @include mixins.flex-column-center
+    position: absolute
+    z-index: 1
+    width: 80%
+    height: 100%
+    top: 5vh 
+
+    p   
+        font-family: variables.$font-headings !important
+
+
+body[theme="blue-theme"]
+    .header-container
+        @include mixins.blue-orange-linear-gradient
+
+    .drawer-container, .navigation 
+        background-color: variables.$blue-group-background
+
+    a, h3, .icon
+        color: variables.$light-color
+
+    .square
+        border: 2px solid variables.$light-color
+
+    .menu, .circle
+        color: variables.$blue-group-icon-color
+
+body[theme="grey-theme"]
+    .header-container
+        @include mixins.grey-linear-gradient
+
+    .drawer-container, .navigation 
+        background-color: variables.$grey-group-background
+
+    a, h3, .icon
+        color: variables.$dark-color
+
+    .square
+        border: 2px solid variables.$dark-color
+
+    .menu, .circle
+        color: variables.$grey-group-icon-color
+    
+
+body[theme="green-theme"]
+    .header-container
+        @include mixins.green-rose-linear-gradient
+
+    .drawer-container, .navigation 
+        background-color: variables.$green-group-background
+
+    a, h3, .icon
+        color: variables.$dark-color
+
+    .square
+        border: 2px solid variables.$dark-color
+
+    .menu, .circle
+        color: variables.$green-group-icon-color
+
+   
+
+
+    
     
 
     
