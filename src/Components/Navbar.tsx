@@ -24,7 +24,9 @@ function Navbar() {
           <Logo />
         </NavLink>
       </div>
-      <div className="menu" onClick={toggle}>{isActive ? <CloseMenu /> : <OpenMenu />}</div>
+      <div className="menu" onClick={toggle}>
+        {isActive ? <CloseMenu /> : <OpenMenu />}
+      </div>
 
       <div onClick={toggle} className="navbar-container">
         {isActive && <Navigation data={nav} />}
