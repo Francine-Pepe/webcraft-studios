@@ -3,20 +3,17 @@
 @mixin yellow-pink-linear-gradient
     border-image: linear-gradient(to right, variables.$rose, variables.$light-pink, variables.$yellow, variables.$orange, variables.$red ) 1
     border-bottom: 2px solid
-    
-    .container
-        background-color: variables.$yellow
 
 @mixin blue-orange-linear-gradient
-    border-image: linear-gradient(to right, variables.$dark-blue, variables.$light-blue, variables.$aqua-blue, variables.$dark-orange, variables.$light-orange ) 1
+    border-image: linear-gradient(to right, variables.$dark-blue, variables.$light-blue, variables.$purple, variables.$dark-rose, variables.$pastel-rose ) 1
     border-bottom: 2px solid
 
 @mixin grey-linear-gradient
-    border-image: linear-gradient(to right, variables.$light-grey, variables.$medium-grey, variables.$dark-grey, variables.$charcoal, variables.$black ) 1
+    border-image: linear-gradient(to right, variables.$light-color, variables.$light-blue, variables.$pastel-blue, variables.$pastel-dark-green, variables.$pastel-aqua-green ) 1
     border-bottom: 2px solid
 
 @mixin green-rose-linear-gradient
-    border-image: linear-gradient(to right, variables.$dark-green, variables.$green-grey, variables.$light-green, variables.$light-rose, variables.$rose ) 1
+    border-image: linear-gradient(to right, variables.$aqua-green, variables.$aqua-rose, variables.$pastel-green, variables.$light-rose, variables.$rose ) 1
     border-bottom: 2px solid
 
 @mixin full-container-auto
@@ -64,6 +61,11 @@
     justify-content: center
     align-items: center
 
+@mixin flex-column-gap
+    display: flex
+    flex-direction: column
+    gap: 4rem 
+
 @mixin flex-end
     display: flex
     justify-content: flex-end
@@ -77,12 +79,12 @@
     display: flex
     align-self: flex-end
 
-@mixin texts
-    // font-weight: variables.$font-text-weight-light
-    line-height: 2.5
-
 @mixin headings-size
     font-size: clamp(1rem, 0.619rem + 0.758vw, 1.563rem)
+
+@mixin big-font-size
+    font-size: clamp(1rem, 0.5437rem + 2.0859vw, 3.125rem)
+    line-height: 2.5
 
 @mixin texts-size
     font-size: clamp(0.8rem, 0.619rem + 0.758vw, 1.563rem)
@@ -92,5 +94,9 @@
 
 @mixin text-box-full
     padding: 2rem 4rem
+
+
+
+	
 
 

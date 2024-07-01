@@ -1,11 +1,15 @@
-import { NavLink } from "react-router-dom";
-import Circle from "../../Icons/Circle";
-import { SquareColors } from "../../Icons/SquareColors";
-import { squareColorsYellow } from "../../data";
+import Circle from "./Circle";
 import { circleColorYellowGroup } from "../../data";
+import { useState } from "react";
 
 function Navigation(props: any) {
   const { data } = props;
+
+  const [isActive, setIsActive] = useState(false);
+
+  function toggle() {
+    setIsActive((isActive) => !isActive);
+  }
 
   return (
     <nav className="navigation">
@@ -22,7 +26,6 @@ function Navigation(props: any) {
             </div>
           )
         )}
-        <SquareColors data={squareColorsYellow} />
       </ul>
     </nav>
   );
