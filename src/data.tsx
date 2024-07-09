@@ -165,6 +165,33 @@ export const languages = [
 export const homeText = [
   {
     id: 0,
-    text: "we are Webcraft Studios, we work From Concept to Code, Crafting Your Digital Universe.",
+    text: "We are Webcraft Studios, we work from concept to code, crafting your digital universe.",
+  },
+];
+
+export const buttonHome = [
+  {
+    id: "#contact",
+    text: "let´s talk!",
+    link: "/#contact",
+  },
+];
+
+export const servicesCard = [
+  {
+    id: 0,
+    service: "UI Design",
+  },
+  {
+    id: 1,
+    service: "Prototyping",
+  },
+  {
+    id: 2,
+    service: "Web Design",
+  },
+  {
+    id: 3,
+    service: "Web Development",
   },
 ];
