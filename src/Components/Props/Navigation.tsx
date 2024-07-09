@@ -16,7 +16,7 @@ function Navigation(props: any) {
       <ul>
         {data.map(
           (item: { id: any; name: string; link: string }, index: any) => (
-            <div id={item.id}>
+            <div id={item.id} className="menu-list">
               <li key={index}>
                 <a href={item.link} id={item.id}>
                   {item.name}
