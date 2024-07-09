@@ -9,7 +9,7 @@ export function Pallete(props: SVGProps<SVGSVGElement>) {
       height="1.5rem"
       viewBox="0 0 24 24"
       {...props}
-      className="icon"
+      className="icon clickable-icon"
     >
       <path
         fill="currentColor"
