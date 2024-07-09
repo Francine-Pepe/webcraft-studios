@@ -9,7 +9,7 @@ export function LanguageIcon(props: SVGProps<SVGSVGElement>) {
       height="1.5rem"
       viewBox="0 0 24 24"
       {...props}
-      className="icon"
+      className="icon clickable-icon"
     >
       <g
         fill="none"

@@ -8,24 +8,35 @@ html, body
 h1, h2, h3, h4, h5, h6
     font-family: variables.$font-headings
 
+h1
+    @include mixins.big-font-size
+
+h4
+    @include mixins.small-text-size
+
 p
     font-family: variables.$font-text
 
 
-ul li
-    list-style-type: none
+ul 
+    padding-left: 0
+    
+    li
+        list-style-type: none
+        padding: 1rem 0
 
 a
     text-decoration: none
     font-family: variables.$font-text
 
-a, button h3
+a, button h3, button
     text-transform: uppercase
 
 .navigation a
     font-size: variables.$font-size-large
 
 button
+    @include mixins.texts-size
     background-color: transparent
     border: none
     cursor: pointer
@@ -43,6 +54,7 @@ button
     @include mixins.yellow-pink-linear-gradient
     width: 100vw
     position: fixed
+    z-index: 5
 
     .logo-container, .menu
         @include mixins.flex-center
@@ -51,32 +63,39 @@ button
         width: 100vw
         background-color: transparent
 
+.colorChange
+    backdrop-filter: blur(20px)
+
 .menu, .drawer-container
     position: absolute
-    z-index: 5
+    z-index: 6
 
-.menu
-    top: 3%
+.menu svg
+    top: 3.5vh
+
+.menu svg, .clickable-icon 
+    cursor: pointer
 
     .navbar-container
         @include mixins.full-container-auto
-        position: absolute
-        z-index: 2
 
 .navigation
     @include mixins.flex-column-center
     @include mixins.full-container
-    background-color: variables.$yellow-group-background
-    
+    background-color: variables.$yellow-group-background   
+    position: relative
 
-.circle-container, .language-content
+.circle-container, ul li, .language-content
     @include mixins.flex-container
     gap: 1rem
 
-.circle
-    width: 1rem
-    height: 1rem
-    border-radius: 50%
+    .circle
+        width: 0.6rem
+        height: 0.6rem
+        border-radius: 50%
+
+.circle-container, ul li
+    justify-content: center
 
 .square-container
     @include mixins.flex-container
@@ -87,14 +106,12 @@ button
         border: 2px solid variables.$dark-color
 
 .drawer-container
-    @include mixins.flex-column-gap
-    background-color: variables.$yellow-group-background
     position: fixed
-    height: 100%
-    padding: 5.4rem 1rem 0 1rem
+    padding: 100% 1rem 100% 1rem    
 
     .drawer-icons
         @include mixins.flex-column-gap
+    
 
 .drawer-language-content, .pallete
     @include mixins.flex-gap
@@ -107,31 +124,64 @@ button
     @include mixins.flex-column-center
     gap: 2rem
 
+.icon
+    color: variables.$dark-color
+    background-color: variables.$yellow-group-background
+    padding: 0.5rem
+    border-radius: 50%
+
+.arrow-right
+    transform: rotateZ(180deg)
+
 .video video
     @include mixins.full-container
     object-fit: cover
 
-.home-text-container
-    @include mixins.big-font-size
-    @include mixins.flex-column-center
-    position: absolute
-    z-index: 1
-    width: 80%
-    height: 100%
-    top: 5vh 
+.home-container
+    position: relative
 
-    p   
+    .home-text-container
+        @include mixins.big-font-size
+        display: flex
+        align-items: center
+        height: 100%
+        width: 100%  
+        position: absolute
+        top: 0
+
+        .home-main-content
+            text-align: center
+            @include mixins.flex-align-center
+            gap: 1rem
+
+.centered-text
+    width: 100%
+
+    p, button  
         font-family: variables.$font-headings !important
+        text-align: center
+
+    p
+        @include mixins.text-shadow
+        padding: 0 15rem 
+
+.button-container
+    button
+        min-width: 15vw
+        height: 5rem
+        background-color: variables.$yellow-group-icon-color
+        color: variables.$light-color
+        border-radius: 20px
 
 
 body[theme="blue-theme"]
     .header-container
         @include mixins.blue-orange-linear-gradient
 
-    .drawer-container, .navigation 
+    .icon, .navigation 
         background-color: variables.$blue-group-background
 
-    a, h3, .icon
+    a, h3, h4, .icon
         color: variables.$light-color
 
     .square
@@ -140,31 +190,39 @@ body[theme="blue-theme"]
     .menu, .circle
         color: variables.$blue-group-icon-color
 
+    .button-container 
+        button
+            background-color: variables.$blue-group-icon-color    
+
+
 body[theme="grey-theme"]
     .header-container
         @include mixins.grey-linear-gradient
 
-    .drawer-container, .navigation 
+    .icon, .navigation 
         background-color: variables.$grey-group-background
 
-    a, h3, .icon
+    a, .icon
         color: variables.$dark-color
 
     .square
         border: 2px solid variables.$dark-color
 
-    .menu, .circle
+    .menu, .circle, h4
         color: variables.$grey-group-icon-color
-    
+
+    .button-container 
+        button
+            background-color: variables.$grey-group-icon-color    
 
 body[theme="green-theme"]
     .header-container
         @include mixins.green-rose-linear-gradient
 
-    .drawer-container, .navigation 
+    .icon, .navigation 
         background-color: variables.$green-group-background
 
-    a, h3, .icon
+    a, h3, .icon, button
         color: variables.$dark-color
 
     .square
@@ -173,7 +231,49 @@ body[theme="green-theme"]
     .menu, .circle
         color: variables.$green-group-icon-color
 
+    .button-container 
+        button
+            background-color: variables.$green-group-icon-color
+
+        button:hover
+            backdrop-filter: blur(20px)
+
+// Media Queries
+
+@media screen and ( max-width: variables.$breakpoint-lg  )
+    .header-container > div
+        &:nth-last-child(n + 2)
+            padding: 1rem 5rem
+
+    .button-container
+        button
+            padding: 0 2rem
+
+@media screen and ( max-width: variables.$breakpoint-md  )
+    .menu svg
+        width: 2.5rem
+        height: 2.5rem
+        top: 4vh   
+
+    .centered-text
+        p   
+            padding: 0 5rem
+
+    .button-container
+        button
+            height: 3.5rem
+
+
+@media screen and ( max-width: variables.$breakpoint-sm  )
+    .header-container > div
+        &:nth-last-child(n + 2)
+            padding: 1rem 3rem
+
    
+
+
+    
+
 
 
     

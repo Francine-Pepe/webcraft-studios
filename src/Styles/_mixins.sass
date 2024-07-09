@@ -9,12 +9,16 @@
     border-bottom: 2px solid
 
 @mixin grey-linear-gradient
-    border-image: linear-gradient(to right, variables.$light-color, variables.$light-blue, variables.$pastel-blue, variables.$pastel-dark-green, variables.$pastel-aqua-green ) 1
+    border-image: linear-gradient(to right, variables.$grey-light-color, variables.$light-blue, variables.$pastel-blue, variables.$pastel-dark-green, variables.$pastel-aqua-green ) 1
     border-bottom: 2px solid
 
 @mixin green-rose-linear-gradient
     border-image: linear-gradient(to right, variables.$aqua-green, variables.$aqua-rose, variables.$pastel-green, variables.$light-rose, variables.$rose ) 1
     border-bottom: 2px solid
+
+@mixin yellow-pink-linear-gradient-border
+    border-image: linear-gradient(to right, variables.$rose, variables.$light-pink, variables.$yellow, variables.$orange, variables.$red ) 1
+    border: 0.5px solid
 
 @mixin full-container-auto
     width: 100vw
@@ -30,6 +34,10 @@
 @mixin flex-center
     display: flex
     justify-content: center
+    align-items: center
+
+@mixin flex-align-center
+    display: flex
     align-items: center
 
 @mixin flex-space-between
@@ -94,7 +102,9 @@
 
 @mixin text-box-full
     padding: 2rem 4rem
-
+    
+@mixin text-shadow
+    text-shadow: 0px 0px 6px rgba(162, 162, 162, 0.385)
 
 
 	

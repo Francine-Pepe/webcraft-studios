@@ -1,4 +1,3 @@
-import React from "react";
 
 function Text(props: any) {
   const { data } = props;

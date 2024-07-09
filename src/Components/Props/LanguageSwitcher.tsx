@@ -7,7 +7,7 @@ function LanguageSwitcher(props: any) {
       <div  className="language-content">
         {data.map((item: { id: any; name: string }, index: any) => (
           <button key={index} className="language-button">
-            <h3>{item.name} | </h3>
+            <h4>{item.name} | </h4>
           </button>
         ))}
       </div>
