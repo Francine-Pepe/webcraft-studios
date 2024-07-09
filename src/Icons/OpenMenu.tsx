@@ -8,7 +8,7 @@ export function OpenMenu(props: SVGProps<SVGSVGElement>) {
       height="3em"
       viewBox="0 0 24 24"
       {...props}
-      className="menu"
+      className="menu clickable-icon"
     >
       <g
         fill="none"
