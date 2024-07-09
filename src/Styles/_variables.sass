@@ -1,11 +1,21 @@
 $background-color-main: #ebebeb
 $dark-color: #0D0D0D
 $light-color: #FFFFFF
+$opaque-light-color: rgba(250,250,250, 0.5)
+$opaque-yellow: rgba(218, 181, 0, 0.5)
 $font-headings: "Righteous", sans-serif
 $font-weight-heading: 400
 $font-style-headings: normal
 $font-text: "Aileron UltraLight", sans-serif
-$font-size-large: 5rem
+$font-size-large: clamp(3rem, 1.255rem + 3.121vw, 5rem)
+$breakpoint-xxl: 1400px
+$breakpoint-xl: 1200px
+$breakpoint-lg: 992px
+$breakpoint-lg-md: 834px
+$breakpoint-md: 768px
+$breakpoint-md-sm: 686px
+$breakpoint-sm: 576px
+$breakpoint-xs: 382px
 
 // YELLOW / PINK GROUP:
 
@@ -21,7 +31,7 @@ $red: #cb132d
 // BLUE / ORANGE GROUP:
 
 $blue-group-background: #001051
-$blue-group-icon-color: #ab7e7e
+$blue-group-icon-color: #844c60
 $blue-group-gradient-color: linear-gradient(#001051, #16095f, #4d0666, #844c60, #ab7e7e)
 $dark-blue: #001051
 $light-blue: #16095f
@@ -34,7 +44,7 @@ $pastel-rose: #ab7e7e
 $grey-group-background: #9da6d1
 $grey-group-icon-color: $dark-color
 $grey-group-gradient-color: linear-gradient(#9da6d1, #afb8e4, #e4dedf, #accc9b, #9ab989)
-$light-color: #e4dedf
+$grey-light-color: #e4dedf
 $light-blue: #afb8e4
 $pastel-blue: #9da6d1
 $pastel-dark-green: #9ab989
