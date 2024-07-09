@@ -8,13 +8,28 @@ import { nav } from "./../data";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
+  const [colorChange, setColorChange] = useState(false);
 
   function toggle() {
     setIsActive((isActive) => !isActive);
   }
 
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 80) {
+      setColorChange(true);
+    } else {
+      setColorChange(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeNavbarColor);
+
   return (
-    <section className="header-container">
+    <section
+      className={
+        colorChange ? "header-container colorChange" : "header-container"
+      }
+    >
       <div
         onClick={() => setIsActive(!isActive)}
         className="logo-container"
