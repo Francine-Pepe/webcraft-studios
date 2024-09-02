@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { LanguageIcon } from "../Icons/LanguageIcon";
-import { languages } from "../data";
-import LanguageSwitcher from "./Props/LanguageSwitcher";
 import { ArrowRight } from "../Icons/ArrowRight";
 import PalleteColors from "./PalleteColors";
 import { ArrowLeft } from "../Icons/ArrowLeft";
@@ -26,30 +23,23 @@ function Drawer() {
   window.addEventListener("click", toggleColor);
 
   return (
-
     <section
       className={
         changeColor ? "drawer-container colorChange" : "drawer-container"
       }
     >
-        <div
-          onClick={() => {
-            toggle();
-            toggleColor();
-          }}
-          className="drawer-icons"
-        >
-          {isVisible ? <ArrowLeft /> : <ArrowRight />}
-          <div className="drawer-language-content">
-            <LanguageIcon />
-            {isVisible && <LanguageSwitcher data={languages} />}
-          </div>
-
-          <div className="pallete-content">
-            <Pallete />
-            {isVisible && <PalleteColors />}
-          </div>
+      <div
+        onClick={() => {
+          toggle();
+          toggleColor();
+        }}
+        className="drawer-icons"
+      >
+        <div className="pallete-content">{isVisible && <PalleteColors />}</div>
+        <div className="pallete">
+          <Pallete />
         </div>
+      </div>
     </section>
   );
 }
