@@ -1,3 +1,10 @@
+import UiImage from "./Assets/ui_design.png";
+import WebDesign from "./Assets/web_design.png";
+import WebDevelopment from "./Assets/web_development.png";
+import Prototyping from "./Assets/prototyping_site.png";
+
+import CardsImage from "./Components/Props/CardsImage";
+
 export const nav = [
   {
     id: "#home",
@@ -177,21 +184,51 @@ export const buttonHome = [
   },
 ];
 
+export const pageDescriptions = [
+  {
+    id: "services",
+    title: "Services",
+    description:
+      "Transform your online presence with our comprehensive website development services. From initial concept to final launch, we ensure a seamless process that brings your vision to life. Partner with us to build a website that stands out and performs exceptionally in today’s digital landscape.",
+  },
+];
+
 export const servicesCard = [
   {
-    id: 0,
-    service: "UI Design",
-  },
-  {
     id: 1,
-    service: "Prototyping",
+    icon: <CardsImage data={UiImage} />,
+    service: "UI Design",
+    text: "UI (User Interface) design services focus on creating visually appealing, user-friendly interfaces for websites, applications, and other digital products. ",
   },
   {
     id: 2,
-    service: "Web Design",
+    icon: <CardsImage data={Prototyping} />,
+    service: "Prototyping",
+    text: "UI prototyping services involve creating interactive, preliminary versions of a user interface to visualize and test design concepts before full development. ",
   },
   {
     id: 3,
+    icon: <CardsImage data={WebDesign} />,
+    service: "Web Design",
+    text: "Our Web design services encompass a range of offerings that aim to create, develop, and maintain websites for businesses, organizations, and individuals. These services are tailored to meet specific needs and goals, whether to build an online presence, enhance user experience, increase sales, or improve brand visibility.",
+  },
+  {
+    id: 4,
+    icon: <CardsImage data={WebDevelopment} />,
     service: "Web Development",
+    text: "Our Web development services cover a wide range of activities involved in building, creating, and maintaining websites and web applications. These services cover everything from coding and programming, ensuring a website is not only visually appealing but also fully functional, responsive, and optimized for performance.",
+  },
+];
+
+export const modalContent = [
+  {
+    id: 1,
+    title: "UI Design",
+    text: "UI (User Interface) design services focus on creating visually appealing, user-friendly interfaces for websites, applications, and other digital products. These services typically include: \\nResearch and Analysis: Understanding user needs, market trends, and business objectives to inform design decisions. \\nWireframing and Prototyping: Creating sketches and interactive prototypes to visualize the layout and flow of the interface. \\nVisual Design: Crafting the aesthetic elements of the interface, such as colors, typography, and imagery, to enhance user experience. \\nInteraction Design: Defining how users interact with the interface, ensuring intuitive navigation and engagement. \\nUsability Testing: Conducting tests with real users to gather feedback and refine the design for optimal usability. \\nResponsive Design: Ensuring the interface works seamlessly across various devices and screen sizes. \\nCollaboration and Handoff: Working closely with developers to ensure the design is accurately implemented and functions as intended.",
+  },
+  {
+    id: 2,
+    title: "Prototyping",
+    text: "UI prototyping services involve creating interactive, preliminary versions of a user interface to visualize and test design concepts before full development. These services typically include: \\nConcept Development: Translating initial ideas and requirements into tangible prototypes. \\nWireframing: Developing basic layouts to establish the structure and flow of the interface. \\nInteractive Prototyping: Building dynamic, clickable models that simulate the user experience. \\nUsability Testing: Conducting tests with users to gather feedback and identify areas for improvement. \\nIteration and Refinement: Making adjustments based on feedback to optimize the prototype. \\nCollaboration and Presentation: Working with stakeholders to ensure the prototype aligns with project goals and expectations. \\nThese services help validate design decisions, identify potential issues early, and ensure the final product meets user needs effectively.",
   },
 ];
