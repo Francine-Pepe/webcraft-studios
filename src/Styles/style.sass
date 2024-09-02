@@ -4,6 +4,7 @@
 html, body
     background-color: variables.$background-color-main
     margin: 0 auto
+    overflow-x: hidden
 
 h1, h2, h3, h4, h5, h6
     font-family: variables.$font-headings
@@ -16,6 +17,7 @@ h4
 
 p
     font-family: variables.$font-text
+    line-height: 2.5rem
 
 
 ul 
@@ -41,18 +43,31 @@ button
     border: none
     cursor: pointer
 
-.container
-    width: 100%
-    height: 100vh
+button[data-tooltip]:hover::after
+    content: attr(data-tooltip)
+    position: absolute
+    background-color: variables.$opaque-light-color
+    color: variables.$dark-color
+    padding: 1rem
+    border-radius: 5px
+    top: 5rem
+    right: -6vw
+    transform: translateX(-50%)
+    white-space: nowrap
+    font-size: 0.8rem
+
+.container, .centered-text, .grid-container, .service-icon img
+    @include mixins.full-container-auto-percentage
 
 .header-container > div
     &:nth-last-child(n + 2)
-        padding: 1rem 7.125rem
+        padding: 1rem 7.125rem 
 
 .header-container
     @include mixins.flex-end
     @include mixins.yellow-pink-linear-gradient
     width: 100vw
+    height: 14dvh
     position: fixed
     z-index: 5
 
@@ -66,9 +81,9 @@ button
 .colorChange
     backdrop-filter: blur(20px)
 
-.menu, .drawer-container
-    position: absolute
-    z-index: 6
+.menu
+    position: absolute 
+    z-index: 6 
 
 .menu svg
     top: 3.5vh
@@ -98,31 +113,44 @@ button
     justify-content: center
 
 .square-container
-    @include mixins.flex-container
+    @include mixins.flex-container    
 
     .square
-        width: 2vw
-        height: 2rem
-        border: 2px solid variables.$dark-color
+        width: 15px
+        height: 15px
+        border-radius: 50%
+        margin: 0.2rem
 
 .drawer-container
+    display: flex
     position: fixed
-    padding: 100% 1rem 100% 1rem    
+    width: 100%
+    z-index: 6  
+    top: 14.35dvh 
+    justify-content: flex-end
 
     .drawer-icons
-        @include mixins.flex-column-gap
-    
+        display: inherit
+        width: inherit
+        justify-content: flex-end
+        align-items: center
 
-.drawer-language-content, .pallete
+        .pallete-content
+            @include mixins.flex-space-around
+            display: flex
+            justify-content: center
+            width: 85%
+
+.pallete 
+    margin-right: 4.5%       
+
+.drawer-language-content
     @include mixins.flex-gap
     align-items:  center
 
-.pallete-content
-    @include mixins.flex-gap
-
 .palletes
-    @include mixins.flex-column-center
-    gap: 2rem
+    display: flex
+    gap: 3rem
 
 .icon
     color: variables.$dark-color
@@ -136,6 +164,7 @@ button
 .video video
     @include mixins.full-container
     object-fit: cover
+
 
 .home-container
     position: relative
@@ -154,9 +183,6 @@ button
             @include mixins.flex-align-center
             gap: 1rem
 
-.centered-text
-    width: 100%
-
     p, button  
         font-family: variables.$font-headings !important
         text-align: center
@@ -164,6 +190,8 @@ button
     p
         @include mixins.text-shadow
         padding: 0 15rem 
+        line-height: 3.5rem
+        
 
 .button-container
     button
@@ -173,6 +201,61 @@ button
         color: variables.$light-color
         border-radius: 20px
 
+.grid-container
+    margin: 0 auto
+    text-align: center
+
+    .grid
+        display: inline-grid
+        grid-template-columns: auto 
+        margin: 2rem
+        background-color: variables.$background-color-main
+        width: variables.$grid-width
+        position: relative
+        border: 1px solid variables.$border-color 
+
+        .grid-item
+            @include mixins.flex-container
+            position: relative
+            right: 0
+            width: 100%
+            height: auto
+            text-align: left 
+
+            .grid-text
+                @include mixins.grid-texts
+                width: 45%
+
+                h3
+                    width: 70%
+                    padding-top: 1rem
+                    border-top: 2px solid variables.$yellow
+                    right: 5%
+
+            .grid-image
+                position: relative
+                left: -2rem
+                width: 50%
+                padding: 6.5rem 0 2rem 0
+                
+
+.modal-content
+    max-width: 50%
+    height: auto
+    margin: 10rem auto
+    background-color: #ffff
+    border-radius: 10px
+    padding: 2rem
+    border: 1px red solid
+
+.title-description-container
+    @include mixins.flex-space-evenly
+    @include mixins.flex-wrap
+    margin: 4rem  
+
+    .description-container, .service-image
+        @include mixins.texts-descriptions
+        width: 40vw
 
 body[theme="blue-theme"]
     .header-container
@@ -181,18 +264,21 @@ body[theme="blue-theme"]
     .icon, .navigation 
         background-color: variables.$blue-group-background
 
-    a, h3, h4, .icon
+    a, h4, .icon
         color: variables.$light-color
-
-    .square
-        border: 2px solid variables.$light-color
 
     .menu, .circle
         color: variables.$blue-group-icon-color
 
     .button-container 
         button
-            background-color: variables.$blue-group-icon-color    
+            background-color: variables.$blue-group-icon-color 
+
+    .grid-container
+        .grid   
+            .grid-item
+                h3
+                    border-top: 2px solid variables.$pastel-rose
 
 
 body[theme="grey-theme"]
@@ -205,15 +291,19 @@ body[theme="grey-theme"]
     a, .icon
         color: variables.$dark-color
 
-    .square
-        border: 2px solid variables.$dark-color
-
     .menu, .circle, h4
         color: variables.$grey-group-icon-color
 
     .button-container 
         button
-            background-color: variables.$grey-group-icon-color    
+            background-color: variables.$grey-group-icon-color 
+
+    .grid-container  
+        .grid   
+                .grid-item
+                    h3
+                        border-top: 2px solid variables.$pastel-dark-green
+
 
 body[theme="green-theme"]
     .header-container
@@ -222,11 +312,8 @@ body[theme="green-theme"]
     .icon, .navigation 
         background-color: variables.$green-group-background
 
-    a, h3, .icon, button
+    a, .icon, button
         color: variables.$dark-color
-
-    .square
-        border: 2px solid variables.$dark-color
 
     .menu, .circle
         color: variables.$green-group-icon-color
@@ -238,7 +325,26 @@ body[theme="green-theme"]
         button:hover
             backdrop-filter: blur(20px)
 
+    .grid-container
+        .grid   
+            .grid-item
+                h3
+                    border-top: 2px solid variables.$rose
+
 // Media Queries
+
+@media screen and (max-width: variables.$breakpoint-xl)
+    .grid-container
+        .grid             
+            margin: 1rem
+            width: variables.$grid-width-medium
+
+    .title-description-container
+        @include mixins.flex-column-center
+        width: 90%
+
+        .description-container, .service-image
+            width: inherit
 
 @media screen and ( max-width: variables.$breakpoint-lg  )
     .header-container > div
@@ -248,6 +354,23 @@ body[theme="green-theme"]
     .button-container
         button
             padding: 0 2rem
+
+    .grid-container
+        .grid
+            width: variables.$grid-width-small
+            margin-top: 2rem
+            
+            .grid-item
+                .grid-image
+                    width: 70%
+
+                .grid-text
+                    p
+                        padding: 0 2rem
+
+                    .grid-text-title
+                        padding-left: 2rem
+
 
 @media screen and ( max-width: variables.$breakpoint-md  )
     .menu svg
@@ -263,11 +386,57 @@ body[theme="green-theme"]
         button
             height: 3.5rem
 
+    .grid-container
+        .grid            
+            .grid-item
+                @include mixins.flex-column-center
+                @include mixins.full-container-auto-percentage
+
+                .grid-text
+                    width: inherit
+
+                    p
+                        padding: 0 1rem
+
+                    .grid-text-title
+                        padding-left: 1rem
+
+                .grid-image
+                    position: relative
+                    left: unset
+                    top: -2rem
+                    width: 50%
+                    padding: 0   
+
+    .title-description-container
+        width: 80%
+        margin: 0
+        padding: 3rem
+
+        .service-image
+            width: 85%
+
+        .description-container
+            @include mixins.full-container-auto-percentage    
 
 @media screen and ( max-width: variables.$breakpoint-sm  )
+    .home-container p, p
+        line-height: 2rem
+
     .header-container > div
         &:nth-last-child(n + 2)
             padding: 1rem 3rem
+
+    .title-description-container
+        .service-image
+            width: 100%
+            padding: 0
+    
+                    
+
+
+
+
 
    
 
