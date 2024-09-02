@@ -10,22 +10,7 @@ import {
 function PalleteColors() {
   const [theme, setTheme] = useState(
     localStorage.getItem("yellow-theme") || "theme"
-    //   "blue-theme" ||
-    //   "grey-theme" ||
-    //   "green-theme"
   );
-
-  // const toggleTheme = () => {
-  //   if (theme === "yellow-theme") {
-  //     setTheme("yellow-theme");
-  //   } else if (theme === "blue-theme") {
-  //     setTheme("blue-theme");
-  //   } else if (theme === "grey-theme") {
-  //     setTheme("grey-theme");
-  //   } else if (theme === "grey-theme") {
-  //     setTheme("yellow-theme");
-  //   }
-  // };
 
   const toggleTheme = () => {
     if (theme === "theme") {
